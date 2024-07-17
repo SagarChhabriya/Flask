@@ -1,5 +1,7 @@
 # Flask
 
+# Session 1
+
 ## Working of a Web App
   ![image](https://github.com/user-attachments/assets/0a8b7396-ad32-43a7-ac69-17e94656963d)
 
@@ -107,3 +109,59 @@ def home():
   return "Welcome to the home page!"
 # For the same function we can have multiple routes
 ```
+
+
+
+# Session 2
+1. Dynamic URLs
+2. URL Redirection
+3. Building URLs
+
+## Dynamic URL<br>
+What's a dynamic URL?
+- A URL that gets generated automatically based on certain inputs in dynamic url
+
+
+## URL Redirection
+- It's the process in which when users visit a particular URL, they're naviagted/guided to different URL
+
+- How is URL Redirection HELPFUL?
+	- If a page is deleted, users need to redirected to another URL
+	- If maintanance of a web page is going on, users can be redirected
+	- If website gets renamed, users can be redirected to appropriate URL
+	
+- Common Response Codes
+  
+  |Code | Action|
+  |----| -----|
+  |301 | Moved Permanently|
+  |302 | Redirected Temporarily|
+  |303| Redirected Temporarily|
+  |307| Redirected Temporarily|
+  |308| Redirected Permanently|
+  
+  
+
+# Session 3
+1. Custom HTML Templates
+2. Jinja
+3. Template Inheritence
+
+
+   ## Jinja
+   - Parameter and Placeholders
+   - Control Structure Selection
+   - Control Structure Repitition
+   - Block
+
+
+
+
+
+
+
+
+
+
+
+
