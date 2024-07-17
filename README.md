@@ -41,6 +41,7 @@
 	https://abc.com/office<br>
 	https://abc.com/employee<br>
 	https://abc.com/contact<br>
+ 	Here office, employee, and contact are Endpoints.
 <br><br>
 
 2. **Path Parameters**: Used for accessing a particular resource at an endpoint.<br>
@@ -56,23 +57,24 @@
 <br><br>
 
 3. **HTTP Methods**: Over the server to perform CRUD Operation<br>
+
 | Methods | Operation|
 |---------|----------|
-|Post|		C|
-|Get |	  R|
-|Put |		U|
-|Delete|	D|
+| Post	  |	 C   |
+| Get 	  |	 R   |
+| Put 	  |	 U   |
+| Delete  |    	 D   |
 
 <br><br>
 4. **HTTP Response Codes**: How do we know whether the response was successful or failed.
 	
- |Code| Meaning|
- |-----|-------|
-|1xx | Informative|
-|2xx | Success |
-|3xx | Redirection |
-|4xx | Client-side error|
-|5xx |Server side error|
+| Code | Meaning |
+|----- | ------- |
+| 1xx  | Informative|
+| 2xx  | Success |
+| 3xx  | Redirection |
+| 4xx  | Client-side error|
+| 5xx  | Server side error|
 
 <br><br>
 5. **Basic Understanding of HTML Tags**<br>
