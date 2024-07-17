@@ -22,6 +22,11 @@ def welcom(name):
 @app.route("/add/<int:num1>/<int:num2>")
 def add(num1, num2):
     return f"The sum of {num1} and {num2} is {num2+num1}"
+
+
+# Input URL Ex: http://127.0.0.1:5000/add/2/2
+# Output: The sum of 2 and 2 is 4
+
 # Start the app
 if __name__ == "__main__":
     app.run(debug=True)
