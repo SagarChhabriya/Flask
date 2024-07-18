@@ -1,2 +1,11 @@
 {% extends "layout.html" %}
 
+{% block content %}
+
+<h3>Contents: </h3>
+<ul>
+    <li>Home</li>
+    <li><a href="{{url_for('about')}}" target="_blank"> About</a></li>
+</ul>
+
+{% endblock content %}
