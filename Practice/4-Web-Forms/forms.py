@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField, DateField, PasswordField,SubmitField, BooleanField)
-from wtforms.validators import (DataRequired, Length, Email, Optional,EqualTo)
+from wtforms import (StringField, DateField, PasswordField,SubmitField, BooleanField, SelectField)
+from wtforms.validators import (DataRequired, Length, Email, Optional,EqualTo, c)
 
 # 1. Define a class "SignupForm" which extends the FlaskForm
 class SignupForm(FlaskForm):
@@ -15,7 +15,7 @@ class SignupForm(FlaskForm):
 
 
     # Add a gender SelectField with label "Gender", choices=["Male", "Female", "Other"], and validators=[Optional()]
-    gender = StringField("Gender", choices=["Male","Female","Other"],validators=[Optional()])
+    gender = SelectField("Gender", choices=["Male","Female","Other"], validators=[Optional()])
 
 
     # Add a dob DateField with label "Date of Birth", and validators[Optional()]
@@ -27,7 +27,7 @@ class SignupForm(FlaskForm):
     
 
     # Add a confirm password PasswordField with label "Confirm Password" and validators= [DataRequired(), Length(5, 25), EqualTo("password")]
-    confirm_passowrd = PasswordField("Confirm Password",validators=[DataRequired(),Length(5,25),EqualTo("password")])
+    confirm_password = PasswordField("Confirm Password",validators=[DataRequired(),Length(5,25),EqualTo("password")])
     # Here the password in the EqualTo("password") is the password variable define just before the confirm_password
 
     # Add a submit SubmitField() with label "Sign Up"

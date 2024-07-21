@@ -6,6 +6,7 @@ from flask import Flask, render_template
 
 # Add a /home endpoint with title="Home" and render the template to "home.html"
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "this_is_a_secret_key"
 
 @app.route("/")
 @app.route("/home")
@@ -19,6 +20,8 @@ def signup():
     form = SignupForm()
     return render_template("signup.html", title="SignUp",form=form)
 
+if __name__=="__main__":
+    app.run(debug=True)
 
 
 # Add a form in "signup.html" with POST method. 

@@ -135,30 +135,47 @@
         - username, email, gender, dob, password, confirm_password
         - At last call the submit {{form.submit()}}
     - Now execute the application you will get an error
+
       ```python
       RuntimeError: A secret key is required to use CSRF.
       ```
 
-    ````text
-    You are getting this error because the wtforms library requires the CSRF (Cross site request forgery) to be handled. In simple the error states that you need to pass a CSRF token. Now head towards the app.py and this line after create the app object:
-    ```python
-    app.config["SECRET_KEY] = "this_is_a_secret_key"
-    ````
+      ```text
+      You are getting this error because the wtforms library requires the CSRF (Cross site request forgery) to be handled. In simple the error states that you need to pass a CSRF token. Now head towards the app.py and this line after create the app object:
+      ```
 
-    Where the app is Flask class object and you need to add the secret key value/token. For now you can use the same line of code for the learning purpose.
+      ```python
+      app.config["SECRET_KEY"] = "this_is_a_secret_key"
+      ```
 
-    ````
-    - Remember the the /singup endpoint with methods ["Get", "POST"] if you don't define this list inside the parantheses of /signup decorater you will get an error when you click the submit button:
-    ```python
-    Method Not Allowed
-    The method is not allowed for the requested URL.
-    ````
+      To let our server know that the CSRF token is added write this line inside the body of html form of signup.html at first line:
 
-    This error occurs because the data is recieved "GET" from the fields of web form but where to send this data? So this why you need to define the "POST" in the decorater /signup and to use the "POST" the "GET" is required.
+      ```html
+      {{form.hidden_tag()}}
+      ```
+
+      Where the app is Flask class object and you need to add the secret key value/token. For now you can use the same line of code for the learning purpose.
+
+      - Remember the the /singup endpoint with methods ["Get", "POST"] if you don't define this list inside the parantheses of /signup decorater you will get an error when you click the submit button:
+
+      ```python
+      Method Not Allowed
+      The method is not allowed for the requested URL.
+      ```
+
+      This error occurs because the data is recieved "GET" from the fields of web form but where to send this data? So this why you need to define the "POST" in the decorater /signup and to use the "POST" the "GET" is required.
 
 5.  app.py
+    After clicking the submit button you are still on the same page, and invalid emails are accepted as well. Let's validate them.
+
     ```python
-    if form.validate_on_submit
-       flash(f"Successfully Registered {form.username.data}!")
-       return render_template("signup.html",title="Sign Up", form=form)
+    if form.validate_on_submit:
+      return redirect(url_for("home"))
+    return render_template("signup.html",title="Sign Up", form=form)
+    ```
+
+    ```python
+    if form.validate_on_submit:
+      flash(f"Successfully Registered {form.username.data}!")
+      return render_template("signup.html",title="Sign Up", form=form)
     ```

@@ -10,7 +10,8 @@
         <!-- Content Block > html form > div -->
          
         <form action="" method="post">
-        
+            {{form.hidden_tag()}}
+
             <!-- Add div(s) for each Field defined in the SignupForm > forms.py
                 username, email, gender, dob, password, confirm_password
                 At last call the submit {{form.submit()}} -->
@@ -19,32 +20,32 @@
                 {{form.username.label}}
                 {{form.username}}
             </div>
-            
+            <br>
             <div>
                 {{form.email.label}}
                 {{form.email}}
             </div>
-            
+            <br>
             <div>
                 {{form.gender.label}}
                 {{form.gender}}
             </div>
-            
+            <br>
             <div>
                 {{form.dob.label}}
                 {{form.dob}}
             </div>
-            
+            <br>
             <div>
                 {{form.password.label}}
                 {{form.password}}
             </div>
-            
+            <br>
             <div>
                 {{form.confirm_password.label}}
                 {{form.confirm_password}}
             </div>
-
+            <br>
             {{form.submit()}}
 
          </form>
