@@ -1,0 +1,53 @@
+<!-- Add a form in "signup.html" with POST method.  -->
+<!--4. Signup.html -->
+
+<!-- extend the layout.html -->
+{% extends "layout.html" %}
+
+    <!-- Define the body of signup.html's form inside the content block. -->
+    {% block content %}
+
+        <!-- Content Block > html form > div -->
+         
+        <form action="" method="post">
+        
+            <!-- Add div(s) for each Field defined in the SignupForm > forms.py
+                username, email, gender, dob, password, confirm_password
+                At last call the submit {{form.submit()}} -->
+        
+            <div>
+                {{form.username.label}}
+                {{form.username}}
+            </div>
+            
+            <div>
+                {{form.email.label}}
+                {{form.email}}
+            </div>
+            
+            <div>
+                {{form.gender.label}}
+                {{form.gender}}
+            </div>
+            
+            <div>
+                {{form.dob.label}}
+                {{form.dob}}
+            </div>
+            
+            <div>
+                {{form.password.label}}
+                {{form.password}}
+            </div>
+            
+            <div>
+                {{form.confirm_password.label}}
+                {{form.confirm_password}}
+            </div>
+
+            {{form.submit()}}
+
+         </form>
+        <!-- Add a div for the username lable and field. -->
+
+    {% endblock %}
