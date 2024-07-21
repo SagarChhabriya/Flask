@@ -39,7 +39,22 @@
         "position": "Manager",
     },
    ```
-   - import the emp.py data in app.py and pass it to emp.html as a paramter in render_templated() function.
+   - import the emp.py data in app.py and pass it to emp.html as a paramter in render_templated() function.<br><br>
+     `Hint`
+   ```python
+   {% extends "layout.html" %}
+   {% block content%}
+      {% for employee_id, employee_info in data.items() %}
+            <li>
+                <strong>Employee ID:</strong> {{ employee_id }}<br>
+                <strong>Name:</strong> {{ employee_info.name }}<br>
+                <strong>Age:</strong> {{ employee_info.age }}<br>
+                <strong>Position:</strong> {{ employee_info.position }}<br>
+            </li>
+        <br>
+      {% endfor %}
+   {% endblock%}
+   ```
 
 ## 4 - Web Forms
 
