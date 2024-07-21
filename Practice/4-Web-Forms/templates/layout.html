@@ -1,0 +1,18 @@
+<!-- 2. Create files "layout.html", "home.html", "login.html", and "signup.html" inside the templates folder. -->
+<!-- Add a title variable in layout.html -->
+<!-- Add a block named content in layout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>This is {{title}} page!</h1>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+
