@@ -52,3 +52,4 @@ class LoginForm(FlaskForm):
     # Add a submit SubmitField with label "Login"
     submit = SubmitField("Login")
 
+# 2. layout.html
