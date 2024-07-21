@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content%}
+{% for employee_id, employee_info in data.items() %}
+            <li>
+                <strong>Employee ID:</strong> {{ employee_id }}<br>
+                <strong>Name:</strong> {{ employee_info.name }}<br>
+                <strong>Age:</strong> {{ employee_info.age }}<br>
+                <strong>Position:</strong> {{ employee_info.position }}<br>
+            </li>
+        <br>
+        {% endfor %}
+{% endblock%}
