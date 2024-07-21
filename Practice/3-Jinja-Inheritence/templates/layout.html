@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <p>This is {{title}} page!</p>
-        {% block content%}
-        {% endblock content%}
+    <p>This is {{ title }} page!</p>
+    <ul>
+        {% block content %}
+        {% endblock %}
+    </ul>
 </body>
 </html>
