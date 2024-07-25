@@ -1,6 +1,6 @@
 # Flask App Routing
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 # Create a simple flask application
 app = Flask(__name__)
@@ -20,12 +20,13 @@ def success(score):
     return "The Person has passed and the score is: "+str(score)
 
 @app.route("/fail/<int:score>")
-def success(score):
+def fail(score):
     return "The person has failed and the score is: "+str(score)
 
 @app.route("/form",methods=["GET","POST"])
 def form():
-    if 
+    if request.method == "GET":
+        return render_template("form.html")
 
 
 if __name__=="__main__":
