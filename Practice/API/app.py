@@ -1,6 +1,6 @@
 # Flask App Routing
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 
 # Create a simple flask application
 app = Flask(__name__)
@@ -34,6 +34,13 @@ def form():
 
         average_marks = (maths+science+history)/3
         return render_template("form.html",score=average_marks)
+    
+@app.route("/api",methods=["POST"])
+def calculate_sum():
+    data = request.get_json()
+    a_val = float(dict(data)['a'])
+    b_val = float(dict(data)['b'])
+    return jsonify(a_val+b_val)
 
 if __name__=="__main__":
     app.run(debug=True)
