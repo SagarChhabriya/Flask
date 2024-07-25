@@ -42,5 +42,13 @@ def calculate_sum():
     b_val = float(dict(data)['b'])
     return jsonify(a_val+b_val)
 
+# Run Postman > paste url: 'http://127.0.0.1:5000/api' > select POST from drop down menu > body > raw > JSON> then paste
+# {
+#     "a":10,
+#     "b":20
+# }
+# hit the send button
+
+
 if __name__=="__main__":
     app.run(debug=True)
