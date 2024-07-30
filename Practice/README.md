@@ -179,3 +179,19 @@
       flash(f"Successfully Registered {form.username.data}!")
       return render_template("signup.html",title="Sign Up", form=form)
     ```
+
+## API
+
+1. Create an API using in-memory python list for localhost.
+
+- import the necessary libraries
+  ```python
+  from flask import Flask, request, jsonify
+  ```
+- Create a flask app
+- Create an in-memory list
+- Create an endpoint `books` with methods `GET` + `POST`. Write a view function books for handling `GET` and `POST` requests. If the request is `GET` return the in-memory list. If the request is `POST` then fetch the record/object and add/append it to the in-memory list and return the updated list after converting with `jsonify`.
+- Create an endpoint `book` not `books` with an integer path parameter id and methods `GET` `PUT` and `DELETE`.
+  - If the request is `GET` then return the with id equals `id` path parameter.
+  - If the request is `PUT` then fetch the fields from the form update the book with id equals `id` and return the update object in `jsonify` format.
+  - If the request is `DELETE` then enumerate the in-memory list `pop` the book having id equals `id` and return the updated list as `jsonfiy` object.
