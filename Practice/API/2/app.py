@@ -76,3 +76,6 @@ def books():
 if __name__=="__main__":
     app.run(debug=True)
 
+# copy the link and move towards postman
+# POST > Body > form-data> Key values> send> Yep! All done!
+
