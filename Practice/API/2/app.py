@@ -87,9 +87,9 @@ def single_book(id):
     if request.method=='PUT':
         for book in books_list:
             if book['id']==id:
-                book['author']==request.form['author']
-                book['language']==request.form['language']
-                book['title']==request.form['title']
+                book['author']=request.form['author']
+                book['language']=request.form['language']
+                book['title']=request.form['title']
                 updated_book = {
                     'id':id,
                     'author':book['author'],
