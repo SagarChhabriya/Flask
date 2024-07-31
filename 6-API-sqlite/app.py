@@ -17,7 +17,6 @@ def books():
     conn = db_connection()
     cursor = conn.cursor()
     if request.method == "GET":
-        conn = db_connection()
         cursor = conn.cursor("SELECT * FROM book")
     
         books = [
@@ -32,9 +31,9 @@ def books():
         new_author = request.form['author']
         new_lang   = request.form['language']
         new_title  = request.form['title']
-        sql = """INSERT INTO book(author, language, title) VALUES (?, ?, ?)"""
+        query = """INSERT INTO book(author, language, title) VALUES (?, ?, ?)"""
 
-        cursor = cursor.execute(sql,(new_author,new_lang,new_title))
+        cursor = cursor.execute(query,(new_author,new_lang,new_title))
         conn.commit()
 
         return f"Book with the id: {cursor.lastrowid} added successfully."    
