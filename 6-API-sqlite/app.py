@@ -73,7 +73,9 @@ def books():
 if __name__=="__main__":
     app.run(debug=True)
 
-# 
+# Step1: After writing the code to handle post request and the code for creating table in db.py
+# Execute the app.py (if required db.py) you will get a file named 'books.sqlite'
+# Step2: Data Grip > New|Exisiting Project > Data Source > paste the path of books.sqlite > done
 
 
 
