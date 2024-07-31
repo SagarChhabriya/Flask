@@ -182,7 +182,7 @@
 
 ## 5. API
 
-1. Create an API using in-memory python list for localhost.
+### 1. Create an API using in-memory python list for localhost.
 
 - import the necessary libraries
   ```python
@@ -196,65 +196,68 @@
   - If the request is `PUT` then fetch the fields from the form update the book with id equals `id` and return the update object in `jsonify` format.
   - If the request is `DELETE` then enumerate the in-memory list `pop` the book having id equals `id` and return the updated list as `jsonfiy` object.
 
-2. Create an API Using sqlite3
-   [GitHub Gist](https://gist.github.com/arycloud/56df8f4d77e8324c4407361ffbe20cc7)
+### 2. Create an API Using sqlite3
 
-   1. Create a file `db.py`
+[GitHub Gist](https://gist.github.com/arycloud/56df8f4d77e8324c4407361ffbe20cc7)
 
-   - Install | import `sqlite3`
-   - Establish connection and create a cursor named `cursor`.
-   - Write the query and store it in the variable named `sql_query`
-     ```sql
-       CREATE TABLE book(
-       id integer PRIMARY KEY,
-       author text NOT NULL,
-       language text NOT NULL,
-       title text NOT NULL
-     )
-     ```
-   - write the code `cursor.execute(sql_query)`
+1.  Create a file `db.py`
 
-   2. Create a file `app.py`
+- Install | import `sqlite3`
+- Establish connection and create a cursor named `cursor`.
+- Write the query and store it in the variable named `sql_query`
+  ```sql
+    CREATE TABLE book(
+    id integer PRIMARY KEY,
+    author text NOT NULL,
+    language text NOT NULL,
+    title text NOT NULL
+  )
+  ```
+- write the code `cursor.execute(sql_query)`
 
-   - import the libraries
-     ```python
-       from flask import Flask, request, jsonify
-       import sqlite3
-     ```
-   - define a function named `db_connection` and return the connection variable as `conn`
-   - Create a route named `/books` with a view function `books` and methods `GET` + `POST`.
-   - Call the `db_connection()` and store the connection as `conn` and initialize the `cursor` inside the body of method.
-   - Handle the `GET` and `POST` requst.
+2.  Create a file `app.py`
 
-     - If request method is `GET` then reinitialize the cursor variable with query `SELECT * FROM book`. Fetch all rows and store them in books list.
+- import the libraries
+  ```python
+    from flask import Flask, request, jsonify
+    import sqlite3
+  ```
+- define a function named `db_connection` and return the connection variable as `conn`
+- Create a route named `/books` with a view function `books` and methods `GET` + `POST`.
+- Call the `db_connection()` and store the connection as `conn` and initialize the `cursor` inside the body of method.
+- Handle the `GET` and `POST` requst.
 
-       ```python
-       books = [
-           dict(id=row[0],author=row[1],language=row[2],title=row[3])
-           for row in cursor.fetchall()
-       ]
-       ```
+  - If request method is `GET` then reinitialize the cursor variable with query `SELECT * FROM book`. Fetch all rows and store them in books list.
 
-       - Check if books is not None then return the books as jsonify object.
+    ```python
+    books = [
+        dict(id=row[0],author=row[1],language=row[2],title=row[3])
+        for row in cursor.fetchall()
+    ]
+    ```
 
-     - If the request method is `POST` then fetch the attributes/fields of the form and store in the variable `new_author`, `new_language`, and `new_title` respectively.
-     - write the insert query
-       ```python
-       query = """INSERT INTO book(author, language, title) VALUES (?, ?, ?)"""
-       ```
-     - execute the query using the cursor variable and commit using the conn object.
-     - write the return statement
-       ```python
-       return f"Book with the id: {cursor.lastrowid} added successfully."
-       ```
+    - Check if books is not None then return the books as jsonify object.
 
-   3. execute the app.py after checking the `__name__==__main__`
+  - If the request method is `POST` then fetch the attributes/fields of the form and store in the variable `new_author`, `new_language`, and `new_title` respectively.
+  - write the insert query
+    ```python
+    query = """INSERT INTO book(author, language, title) VALUES (?, ?, ?)"""
+    ```
+  - execute the query using the cursor variable and commit using the conn object.
+  - write the return statement
+    ```python
+    return f"Book with the id: {cursor.lastrowid} added successfully."
+    ```
 
-   - A new file named `books.sqlite` will be created if not then execute the `db.py` file.
+3.  execute the app.py after checking the `__name__==__main__`
 
-   4. Head towards the DataGrip
+- A new file named `books.sqlite` will be created if not then execute the `db.py` file.
 
-   - Create a new project if necessary or new to DataGrip (JetBrains tool for Cross Platform Databases)
-   - Add a `Data Source` sqlite and add the path to the `books.sqlite`
+4.  Head towards the DataGrip
 
-   5. Run the app.py > Check the API using `POSTMAN`
+- Create a new project if necessary or new to DataGrip (JetBrains tool for Cross Platform Databases)
+- Add a `Data Source` sqlite and add the path to the `books.sqlite`
+
+5.  Run the app.py > Check the API using `POSTMAN`
+
+## TODO: Containerization + Deployment
