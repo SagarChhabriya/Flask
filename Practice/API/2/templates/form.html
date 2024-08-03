@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{%  block content %}
+<div>
+    <!-- url to the view function that handles the request -->
+    <form action=" {{ url_for('form') }} " method="post">
+        <input type="text" placeholder="Maths" name="maths" required="required" />
+        <input type="text" placeholder="English" name="english" required="required" />
+        <input type="text" placeholder="ICT" name="ict" required="required" />
+        <br><br>
+        <button type="submit"> Submit </button> 
+    </form>
+        <p>The score is {{score}}</p>
+</div>
+
+{% endblock %}
