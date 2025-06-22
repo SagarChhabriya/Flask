@@ -1,0 +1,54 @@
+Flask Notes
+
+Example:
+Form Submission: Let's say you fill out a contact form on a website. When you click "Submit," the server runs a CGI script that processes your form, maybe sends you a thank-you message, or stores your data. Then, it sends a response back to your browser with a new page, confirming your submission.
+
+Challenges:
+CGI was good, but it had some issues:
+
+Efficiency: Every time a request came in (like when you submitted a form), the server had to create a new process (a new "instance" of the CGI program), which could be slow and used up a lot of server resources.
+Security: If not properly handled, CGI scripts could be vulnerable to security issues, like letting bad people run dangerous commands on the server.
+
+
+
+
+Alternatives to CGI:
+To solve some of the problems with CGI, newer technologies were developed, like:
+
+Server Extensions (like mod_php or mod_python) that allow a program to run continuously and handle multiple requests, instead of creating a new process for each one.
+
+
+In Short:
+CGI is like a middleman between the web server and a program that makes websites interactive. It's an old but important part of how dynamic websites were first built and works by allowing the server to run a program whenever a user interacts with a website.
+
+
+
+
+Putting It All Together:
+1. Client-Side (React) sends an HTTP request (e.g., for a form submission) to the web server.
+2. The Web Server (Apache, Nginx) uses CGI (or modern equivalents like WSGI for Python or PHP-FPM for PHP) to forward the request to the server-side application (Flask or PHP).
+3. The Flask or PHP app processes the request, which might include querying the Database.
+For example:
+In a Flask application (Python), the web server might route the request to a Flask route handler.
+
+4. The server-side application combines the results (from the database or other logic) and prepares a response.
+Example:
+
+The user submits a search form. The server-side code in Flask or PHP will process the request, query the database for matching results, and format the results as needed.
+
+5. The Web Server sends the response (HTML, JSON, etc.) back to the Client-Side (React) application.
+If the request requires data from a database, the Flask or PHP app will connect to the database server (e.g., MySQL, PostgreSQL, or any other database you’re using).
+
+Flask might use an ORM like SQLAlchemy, or PHP might use PDO to interact with the database.
+The database processes the query and sends the data back to the application.
+
+
+6. The React front-end updates the UI or takes action based on the response.
+
+Once the server-side application (Flask or PHP) has the required data (from a database or other services), it formats the response (e.g., as JSON or HTML) and sends it back to the web server.
+For Flask: If the request is for a JSON API, the Flask app might return a JSON response.
+For PHP: It could return HTML or JSON, depending on how the PHP script is set up.
+
+7. Web Server Sends the Response to Client
+The web server (Apache, Nginx, etc.) takes the response from the server-side script (Flask or PHP) and sends it back to the client’s browser.
+The React application (on the client-side) can now handle the response. For example, it might update the UI with new data (like showing search results, or displaying a success message).
